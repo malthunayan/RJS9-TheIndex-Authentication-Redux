@@ -24,7 +24,10 @@ export const fetchBooks = () => {
 export const postBook = book => {
   return async dispatch => {
     try {
-      const res = await instance.post("/api/books/", book);
+      const res = await axios.post(
+        "https://the-index-api.herokuapp.com/api/books/",
+        book
+      );
       const newBook = res.data;
       dispatch({
         type: ADD_BOOK,
